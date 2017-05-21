@@ -1,11 +1,15 @@
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1600, 1024, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 
-    game.load.tilemap('tilemap', 'assets/tilemaps/un_map.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.image('roguelike_sheet', 'assets/tilemaps/roguelike_sheet.png');
+    game.load.image('roguelike_indoor', 'assets/tilemaps/roguelike_indoor.png');
+    game.load.image('roguelike_dungeon', 'assets/tilemaps/roguelike_dungeon.png');
+    game.load.image('roguelike_city', 'assets/tilemaps/roguelike_city.png');
+    game.load.image('roguelike_character', 'assets/tilemaps/roguelike_character.png');
     game.load.spritesheet('player', 'assets/sprites/spaceman.png', 16, 16);
+    game.load.tilemap('tilemap', 'assets/tilemaps/un_map.json', null, Phaser.Tilemap.TILED_JSON);
 
 }
 
@@ -21,6 +25,10 @@ function create() {
     //  Now add in the tileset
     // addTilesetImage(tileset, key, tileWidth, tileHeight, tileMargin, tileSpacing, gid)
     map.addTilesetImage('roguelike_sheet');
+    map.addTilesetImage('roguelike_indoor');
+    map.addTilesetImage('roguelike_dungeon');
+    map.addTilesetImage('roguelike_city');
+    map.addTilesetImage('roguelike_character');
 
     //  Create our layer
     layer = map.createLayer('Ground');
@@ -43,6 +51,7 @@ function create() {
     player.animations.add('right', [1,2], 10, true);
     player.animations.add('up', [11,12,13], 10, true);
     player.animations.add('down', [4,5,6], 10, true);
+    player.y = 500;
 
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
