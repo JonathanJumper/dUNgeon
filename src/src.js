@@ -8,8 +8,11 @@ function preload() {
     game.load.image('roguelike_dungeon', 'assets/tilemaps/roguelike_dungeon.png');
     game.load.image('roguelike_city', 'assets/tilemaps/roguelike_city.png');
     game.load.image('roguelike_character', 'assets/tilemaps/roguelike_character.png');
+
     game.load.spritesheet('player', 'assets/sprites/spaceman.png', 16, 16);
     game.load.tilemap('tilemap', 'assets/tilemaps/un_map.json', null, Phaser.Tilemap.TILED_JSON);
+
+    this.game.load.json('speech', 'assets/speechs/test.json');
 
 }
 
@@ -17,6 +20,7 @@ var map;
 var layer;
 var cursors;
 var player;
+var crazy;
 
 function create() {
 
@@ -32,6 +36,7 @@ function create() {
 
     //  Create our layer
     layer = map.createLayer('Ground');
+    layer = map.createLayer('Ground 2');
     layer = map.createLayer('Buildings');
     layer = map.createLayer('Roofs');
     layer = map.createLayer('Extra');
@@ -51,7 +56,6 @@ function create() {
     player.animations.add('right', [1,2], 10, true);
     player.animations.add('up', [11,12,13], 10, true);
     player.animations.add('down', [4,5,6], 10, true);
-    player.y = 500;
 
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
