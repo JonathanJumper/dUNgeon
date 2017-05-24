@@ -19,12 +19,15 @@
 }
 
 #dialogue  {
+  visibility: hidden;
+
   position: absolute;
   background-color: rgba(165, 127, 89, 0.6);
   left: 50px;
   top: 518px;
   width: 924px;
   height: 200px;
+  padding: 20px;
   z-index: 2;
 
   text-align: center;
@@ -33,7 +36,7 @@
   font-size: 2.5em;
 }
 
-#dialogue span{
+#dialogue p{
   display: block;
   position: relative;
   top: 50%;

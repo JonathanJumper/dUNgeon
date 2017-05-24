@@ -1,6 +1,28 @@
 
 var game = new Phaser.Game(1024, 768, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, render: render });
 
+var map;
+var layer;
+var cursors;
+var player;
+
+var dialogue;
+var dialogues = {
+    1: "Hey Dad, I'mthirsty. Canyou get mesome milk?-baby Seb",
+    2: "The key isin the shed.-Mum",
+    3: "Here lies theFairy Queen.She will neverbe forgotten",
+    4: "What are thosedark patchesin the water?",
+    5: "Keep OFFthe grass!",
+    6: "Your milkis in anothercastle!",
+    7: "How did thisget here?",
+    8: "I lost thekey on theisland",
+    9: "The Glade",
+    10: "Here lies theFairy King.He didn't likethe Fairy Queen",
+    11: "Follow me onTwitter:@binarymoon",
+    12: "Made by BenGillbanks in5 days. For#lowrezjam",
+    13: "Well Done!",
+};
+
 function preload() {
 
     game.load.image('roguelike_sheet', 'assets/tilemaps/roguelike_sheet.png');
@@ -15,12 +37,6 @@ function preload() {
     this.game.load.json('speech', 'assets/speechs/test.json');
 
 }
-
-var map;
-var layer;
-var cursors;
-var player;
-var crazy;
 
 function create() {
 
@@ -68,6 +84,7 @@ function create() {
     var help = game.add.text(16, 16, 'Arrows to move', { font: '14px Arial', fill: '#ffffff' });
     help.fixedToCamera = true;
 
+    dialogue = document.getElementById("dialogue");
 }
 
 function update() {
@@ -95,6 +112,7 @@ function update() {
     {
         player.body.velocity.y = 100;
         player.play('down');
+        showDialogue(1);
     }
     else
     {
@@ -107,4 +125,11 @@ function render() {
 
     // game.debug.body(player);
 
+}
+
+function showDialogue(story_index){
+  dialogue.style.visibility = 'visible';
+  dialogue.childNodes[1].innerText = dialogues[ story_index ];
+
+  setTimeout(function(){ dialogue.style.visibility = 'hidden'; }, 4000);
 }
