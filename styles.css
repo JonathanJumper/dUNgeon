@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
+}
+
+#game {
+  position: absolute;
+  z-index: 1;
+}
+
+#dialogue  {
+  position: absolute;
+  background-color: rgba(165, 127, 89, 0.6);
+  left: 50px;
+  top: 518px;
+  width: 924px;
+  height: 200px;
+  z-index: 2;
+
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 2.5em;
+}
+
+#dialogue span{
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
