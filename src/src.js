@@ -171,7 +171,7 @@ function create() {
   cursors = game.input.keyboard.createCursorKeys();
   dialogue = document.getElementById("dialogue");
 
-  showDialogue("assets/sprites/robot.png", "", "Hola, acabas de salir de estudiar 4 horas... uff.. para un parcial en derecho, que tienes ya, apresurate, menos mal estas cerca...")
+  showDialogue("assets/sprites/robot.png", "", "Hola, acabas de salir de estudiar 4 horas... uff.. para un parcial en derecho, que tienes ya, apresurate, menos mal estas cerca...", undefined, 7000);
 
 }
 
@@ -304,7 +304,7 @@ function showDialogue(img_path, name, message, trigger, timeout){
       trigger_final = true;
       break;
     case 7:
-      game.gamePaused()
+      game.gamePaused();
       break;
     }
   }
